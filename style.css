@@ -39,7 +39,17 @@
     justify-content: center;
     margin: 0 auto;
 }
-
+.bottomCorrect{
+    color: green;
+}
+.bottomWrong{
+    color: red;
+}
+.bottomCorrect, .bottomWrong{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+}
 @media screen and (max-width: 800px){
     .smallQuestion, .smallAnswer{
         width: 75%;

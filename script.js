@@ -1,7 +1,8 @@
 let random = document.querySelector('.random');
 let questionBox = document.querySelector('.questionBox');
 let questionContainer = document.querySelector('.question');
-let answers = document.querySelectorAll('.answer')
+let answers = document.querySelectorAll('.answer');
+let bottom = document.querySelector('.bottom');
 let answersContent = [];
 let correctAnswer = [];
 let questions = [];
@@ -37,9 +38,11 @@ function randomGame(e){
                 e.preventDefault();
                 console.log(e.target)
                 if(e.target.innerHTML == correctAnswer[0]){
-                    console.log("Good job!")
+                    bottom.classList.add('bottomCorrect');
+                    bottom.innerText = "Correct!";
                 } else{
-                    console.log("Nice try, but the correct answer was " + correctAnswer[0].innerHTML)
+                    bottom.classList.add('bottomWrong');
+                    bottom.innerHTML = 'Nice try, but the correct answer was ' + correctAnswer[0]; 
                 }
                 i+=1;
             //     console.log(i);
