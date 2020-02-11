@@ -1,0 +1,38 @@
+ h1{
+     text-align: center;
+ }
+ .buttons{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     flex-wrap: nowrap;
+     margin: 15px auto;
+     
+ }
+.questionBox, .question, .answer{
+    border: 1px solid black;
+}
+.question{
+    height: 300px;
+    width: 500px;
+    align-content: center;
+    margin: 15px auto;
+}
+.answer{
+    width: 500px;
+    height: 50px;
+    align-content: center;
+    margin: 5px auto;
+}
+.answer4{
+    margin-bottom: 15px;
+}
+.questionBox{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+}
