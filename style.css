@@ -28,6 +28,9 @@
     margin-bottom: 15px;
 }
 .questionBox{
+    display: none;
+}
+.questionBoxOpen{
     height: 50%;
     width: 50%;
     display: flex;
@@ -35,4 +38,10 @@
     align-content: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 800px){
+    .smallQuestion, .smallAnswer{
+        width: 75%;
+    }
 }
