@@ -35,11 +35,12 @@ function randomGame(e){
             })
             function newQuestion(e){
                 e.preventDefault();
-                // if(e.target.innerHTML.valueOf() === correctAnswer[0].innerHTML.valueOf()){
-                //     console.log("Good job!")
-                // } else{
-                //     console.log("Nice try, but the correct answer was " + correctAnswer[0].innerHTML)
-                // }
+                console.log(e.target)
+                if(e.target.innerHTML == correctAnswer[0]){
+                    console.log("Good job!")
+                } else{
+                    console.log("Nice try, but the correct answer was " + correctAnswer[0].innerHTML)
+                }
                 i+=1;
             //     console.log(i);
                 correctAnswer = [];
