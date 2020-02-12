@@ -39,6 +39,12 @@
     justify-content: center;
     margin: 0 auto;
 }
+.gameOver{
+    display: none;
+}
+.nextQuestion{
+    display: block;
+}
 .modal{
     display: none;
     position: fixed;
@@ -51,7 +57,7 @@
     background-color: black;
     background-color: rgba(0, 0, 0, 0.4);
     /* margin-bottom: 100%; */
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: slideUp;
     text-align: center;
     align-content: center;
@@ -60,7 +66,7 @@
     display: block;
 }
 .modalClose{
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: slideOut;
 }
 .modalContent{

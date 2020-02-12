@@ -58,6 +58,29 @@ function randomGame(e){
                             modal.classList.remove('modalClose');
                             modal.removeEventListener('animationend', closed)
                         }
+                        let gameStatus = document.querySelector('.gameStatus');
+                        
+                        if(i===10){
+                            gameStatus.innerHTML = "Game Over!";
+                            nextButton.addEventListener('click', endgame);
+                            function endgame(e){
+                                e.preventDefault();
+                                questionContainer.innerHTML = '';
+                                for(let j=0; j<answers.length; j++){
+                                    answers[j].innerHTML = '';
+                                }
+                                questionBox.classList.remove('questionBoxOpen');
+                                modal.classList.add('modalClose')
+                                modal.addEventListener('animationend', closed);
+                                function closed(e){
+                                    if(e.target == modal){
+                                        modal.classList.remove('modalOpen');
+                                        modal.classList.remove('modalClose');
+                                        modal.removeEventListener('animationend', closed)
+                                }
+                            }
+                            }
+                        }
                     }
                     turn();
                 }
