@@ -2,7 +2,9 @@ let random = document.querySelector('.random');
 let questionBox = document.querySelector('.questionBox');
 let questionContainer = document.querySelector('.question');
 let answers = document.querySelectorAll('.answer');
-let bottom = document.querySelector('.bottom');
+let modal = document.querySelector('.modal');
+let modalText = document.querySelector('.modalText');
+let nextButton = document.querySelector('.nextQuestion');
 let answersContent = [];
 let correctAnswer = [];
 let questions = [];
@@ -16,38 +18,51 @@ function randomGame(e){
         })
         .then(res=>{ 
             questions.push(...res.results);
-            console.log(questions);
+            // console.log(questions);
             let i=0;
             turn();
             function turn(){
                 questionContainer.innerHTML = questions[i].question;
                 answersContent.push(questions[i]["correct_answer"], ...questions[i]["incorrect_answers"]);
                 correctAnswer.push(questions[i]["correct_answer"]);
-                console.log(answersContent);
+                // console.log(answersContent);
                 let answersContentFinal = [];
                 for(let j=0; j<answers.length; j++){
                     answersContentFinal.push(...answersContent.splice(Math.floor(Math.random()*answersContent.length)));    
                     answers[j].innerHTML = answersContentFinal[j]
                 }
-                console.log(answersContentFinal)
+                // console.log(answersContentFinal)
             }
             answers.forEach(answer=>{
-                answer.addEventListener('click', newQuestion)
+                answer.addEventListener('click', checkCorrect)
             })
-            function newQuestion(e){
+            function checkCorrect(e){
                 e.preventDefault();
-                console.log(e.target)
+                // console.log(e.target)
+                modal.classList.add('modalOpen')
                 if(e.target.innerHTML == correctAnswer[0]){
-                    bottom.classList.add('bottomCorrect');
-                    bottom.innerText = "Correct!";
+                    modalText.innerHTML = "Good job!";
+                    modalText.style.color = 'green';
                 } else{
-                    bottom.classList.add('bottomWrong');
-                    bottom.innerHTML = 'Nice try, but the correct answer was ' + correctAnswer[0]; 
+                    modalText.innerHTML = "Nice try, but the correct answer was " + correctAnswer[0];
+                    modalText.style.color = 'red';
+                }
+                nextButton.addEventListener('click', newQuestion)
+                function newQuestion(e){
+                    e.preventDefault();
+                    modal.classList.add('modalClose');
+                    modal.addEventListener('animationend', closed);
+                    function closed(e){
+                        if(e.target == modal){
+                            modal.classList.remove('modalOpen');
+                            modal.classList.remove('modalClose');
+                            modal.removeEventListener('animationend', closed)
+                        }
+                    }
+                    turn();
                 }
                 i+=1;
-            //     console.log(i);
                 correctAnswer = [];
-                turn();
             }
             questionBox.classList.add('questionBoxOpen');
             });

@@ -39,16 +39,60 @@
     justify-content: center;
     margin: 0 auto;
 }
-.bottomCorrect{
-    color: green;
-}
-.bottomWrong{
-    color: red;
-}
-.bottomCorrect, .bottomWrong{
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* margin-bottom: 100%; */
+    animation-duration: 1s;
+    animation-name: slideUp;
     text-align: center;
-    font-size: 36px;
-    font-weight: 800;
+    align-content: center;
+}
+.modalOpen{
+    display: block;
+}
+.modalClose{
+    animation-duration: 1s;
+    animation-name: slideOut;
+}
+.modalContent{
+    background-color: #fefefe;
+    margin: 15% auto 0 auto;
+    padding: 50px;
+    border: 1px solid #888888;
+    width: 50%;
+}
+.modalText{
+    padding: 50px;
+}
+@keyframes slideUp {
+    from {
+      margin-top: 100%;
+      height: 100%; 
+    }
+  
+    to {
+      margin-bottom: 0%;
+      height: 100%;
+    }
+  }
+@keyframes slideOut{
+    from{
+        margin-bottom: 0%;
+        width: 100%;
+    }
+    to{
+        margin-top: 100%;
+        width: 100%;
+    }
 }
 @media screen and (max-width: 800px){
     .smallQuestion, .smallAnswer{
