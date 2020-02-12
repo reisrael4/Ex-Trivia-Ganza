@@ -9,7 +9,8 @@ let modal = document.querySelector('.modal');
 let modalText = document.querySelector('.modalText');
 let nextButton = document.querySelector('.nextQuestion');
 let gameStatus = document.querySelector('.gameStatus');
-let gameOver = document.querySelector('.gameOver')
+let gameOver = document.querySelector('.gameOver');
+let body = document.querySelector('body');
 let answersContentFinal = [];
 let i=0;
 let answersContent = [];
@@ -34,7 +35,8 @@ function randomGame(e){
             questions.push(...res.results);
             questionBox.classList.add('questionBoxOpen');
             game();
-            });            
+            });
+    body.classList.add('randomBackground')
 }
 function easyGame(e){
     e.preventDefault();
@@ -46,7 +48,8 @@ function easyGame(e){
             questions.push(...res.results);
             questionBox.classList.add('questionBoxOpen');
             game();
-            });            
+            });
+    body.classList.add('easyBackground')
 }
 function mediumGame(e){
     e.preventDefault();
@@ -59,6 +62,7 @@ function mediumGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
+    body.classList.add('mediumBackground')
 }
 function hardGame(e){
     e.preventDefault();
@@ -71,7 +75,8 @@ function hardGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             
-            });            
+            }); 
+    body.classList.add('hardBackground')           
 }
 function game(){
     i=0;
