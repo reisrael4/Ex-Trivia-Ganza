@@ -3,7 +3,7 @@ let easy = document.querySelector('.easy');
 let medium = document.querySelector('.medium');
 let hard = document.querySelector('.hard');
 let questionBox = document.querySelector('.questionBox');
-let questionContainer = document.querySelector('.question');
+let questionText = document.querySelector('.questionText');
 let answers = document.querySelectorAll('.answer');
 let modal = document.querySelector('.modal');
 let modalText = document.querySelector('.modalText');
@@ -79,7 +79,7 @@ function game(){
 }
 function turn(){
     console.log(i)
-    questionContainer.innerHTML = questions[i].question;
+    questionText.innerHTML = questions[i].question;
     answersContent.push(questions[i]["correct_answer"], ...questions[i]["incorrect_answers"]);
     correctAnswer.innerHTML = questions[i]["correct_answer"];
     for(let j=0; j<answers.length; j++){
@@ -106,6 +106,7 @@ function newQuestion(e){
     e.preventDefault();
     modal.classList.add('modalClose');
     modal.addEventListener('animationend', closed);
+    // correctAnswer.innerHTML = '';
     answersContentFinal = [];
     answersContent = [];
     i += 1;
@@ -120,7 +121,7 @@ function newQuestion(e){
 }
 function endgame(e){
     e.preventDefault();
-    questionContainer.innerHTML = '';
+    questionText.innerHTML = '';
     for(let j=0; j<answers.length; j++){
         answers[j].innerHTML = '';
     }
@@ -141,6 +142,7 @@ function closed(e){
         modal.classList.remove('modalClose');
         modal.removeEventListener('animationend', closed)
     }
+    // correctAnswer.innerHTML = '';
     answersContentFinal = [];
     answersContent = [];
 }
