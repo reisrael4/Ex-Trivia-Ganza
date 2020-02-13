@@ -10,9 +10,11 @@ let modalText = document.querySelector('.modalText');
 let nextButton = document.querySelector('.nextQuestion');
 let gameStatus = document.querySelector('.gameStatus');
 let gameOver = document.querySelector('.gameOver');
+let scoreAddress = document.querySelector('.js-score');
 let body = document.querySelector('body');
 let answersContentFinal = [];
 let i=0;
+score = 0;
 let answersContent = [];
 let correctAnswer = document.querySelector('.correctAnswer')
 let questions = [];
@@ -112,6 +114,8 @@ function checkCorrect(e){
     if(e.target.innerHTML == correctAnswer.innerHTML){
         modalText.innerHTML = "Good job!";
         modalText.style.color = 'green';
+        score += 10;
+        scoreAddress.innerText = score;
     } else{
         modalText.innerHTML = "Nice try, but the correct answer was " + correctAnswer.innerHTML;
         modalText.style.color = 'red';
