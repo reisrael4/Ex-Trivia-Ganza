@@ -180,7 +180,6 @@ function hardFifteenGame(e){
             questions.push(...res.results);
             questionBox.classList.add('questionBoxOpen');
             game();
-            
             }); 
     body.classList.add('hardBackground')           
 }
@@ -338,7 +337,6 @@ function closed(e){
         modal.classList.remove('modalClose');
         modal.removeEventListener('animationend', closed)
     }
-    // correctAnswer.innerHTML = '';
     answersContentFinal = [];
     answersContent = [];
 }
