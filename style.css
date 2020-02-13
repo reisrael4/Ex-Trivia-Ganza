@@ -4,10 +4,11 @@
  .score{
      text-align: center;
      color: whitesmoke;
+     margin: 0 auto;
  }
  .startBackground{
-     background-image: url(https://images.unsplash.com/photo-1579999284976-73d606de1161?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1664&q=80);
- }
+    background-image: url(https://images.unsplash.com/photo-1579999284976-73d606de1161?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1664&q=80);
+}
  .easyBackground{
     background-image: url(https://images.unsplash.com/photo-1553883016-25462d1fbb18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80);
  }
@@ -37,23 +38,41 @@
     width: 150px;
  }
  h1{
+    font-size: 48px;
+ }
+ .numberQuestion{
+     font-size: 20px;
+     display: block;
+     margin-top: 5px;
+ }
+ h1, .numberQuestion{
      text-align: center;
-     font-size: 48px;
      color: whitesmoke;
      text-shadow: 1px 1px gray;
+     margin-bottom: 5px;
  }
- .buttons{
-     display: flex;
+ .numberButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px auto;
+ }
+ .numberButtonsOff{
+     display: none;
+     margin: 0;
+ }
+ .tenButtons, .fifteenButtons, .twentyButtons{
+     display: none;
      flex-direction: row;
      justify-content: center;
      flex-wrap: nowrap;
      margin: 15px auto;
-     /* justify-content: space-evenly; */
  }
- .easy, .medium, .hard{
+ .easyTen, .mediumTen, .hardTen, .easyFifteen, .mediumFifteen, .hardFifteen, .easyTwenty, .mediumTwenty, .hardTwenty, .ten, .fifteen{
      margin-right: 5px;
  }
- .medium, .hard, .random{
+ .mediumTen, .hardTen, .randomTen, .mediumFifteen, .hardFifteen, .randomFifteen, .mediumTwenty, .hardTwenty, .randomTwenty, .fifteen, .twenty{
      margin-left: 5px;
  }
 .question, .answer{
@@ -90,6 +109,8 @@
 }
 .questionBox{
     display: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .questionBoxOpen{
     height: 50%;

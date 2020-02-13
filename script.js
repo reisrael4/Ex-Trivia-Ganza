@@ -1,7 +1,31 @@
-let random = document.querySelector('.random');
-let easy = document.querySelector('.easy');
-let medium = document.querySelector('.medium');
-let hard = document.querySelector('.hard');
+let baseTenUrl = 'https://opentdb.com/api.php?amount=10&';
+let baseFifteenUrl = 'https://opentdb.com/api.php?amount=15&';
+let baseTwentyUrl = 'https://opentdb.com/api.php?amount=20&';
+let randomUrl = 'type=multiple';
+let easyUrl = 'difficulty=easy&type=multiple';
+let mediumUrl = 'difficulty=medium&type=multiple';
+let hardUrl = 'difficulty=hard&type=multiple';
+let difficultyButtons = document.querySelector('.difficultyButtons');
+let numberButtons = document.querySelector('.numberButtons')
+let numberQuestion = document.querySelector('.numberQuestion');
+let ten = document.querySelector('.ten');
+let tenButtons = document.querySelector('.tenButtons');
+let fifteenButtons = document.querySelector('.fifteenButtons');
+let twentyButtons = document.querySelector('.twentyButtons');
+let fifteen = document.querySelector('.fifteen');
+let twenty = document.querySelector('.twenty');
+let randomTen = document.querySelector('.randomTen');
+let easyTen = document.querySelector('.easyTen');
+let mediumTen = document.querySelector('.mediumTen');
+let hardTen = document.querySelector('.hardTen');
+let randomFifteen = document.querySelector('.randomFifteen');
+let easyFifteen = document.querySelector('.easyFifteen');
+let mediumFifteen = document.querySelector('.mediumFifteen');
+let hardFifteen = document.querySelector('.hardFifteen');
+let randomTwenty = document.querySelector('.randomTwenty');
+let easyTwenty = document.querySelector('.easyTwenty');
+let mediumTwenty = document.querySelector('.mediumTwenty');
+let hardTwenty = document.querySelector('.hardTwenty');
 let questionBox = document.querySelector('.questionBox');
 let questionText = document.querySelector('.questionText');
 let answers = document.querySelectorAll('.answer');
@@ -18,18 +42,45 @@ score = 0;
 let answersContent = [];
 let correctAnswer = document.querySelector('.correctAnswer')
 let questions = [];
-let baseUrl = 'https://opentdb.com/api.php?amount=10&';
-let randomUrl = 'type=multiple';
-let easyUrl = 'difficulty=easy&type=multiple';
-let mediumUrl = 'difficulty=medium&type=multiple';
-let hardUrl = 'difficulty=hard&type=multiple';
-random.addEventListener('click', randomGame);
-easy.addEventListener('click', easyGame);
-medium.addEventListener('click', mediumGame);
-hard.addEventListener('click', hardGame);
-function randomGame(e){
+ten.addEventListener('click', tenButtonsOn);
+fifteen.addEventListener('click', fifteenButtonsOn);
+twenty.addEventListener('click', twentyButtonsOn);
+randomTen.addEventListener('click', randomTenGame);
+easyTen.addEventListener('click', easyTenGame);
+mediumTen.addEventListener('click', mediumTenGame);
+hardTen.addEventListener('click', hardTenGame);
+randomFifteen.addEventListener('click', randomFifteenGame);
+easyFifteen.addEventListener('click', easyFifteenGame);
+mediumFifteen.addEventListener('click', mediumFifteenGame);
+hardFifteen.addEventListener('click', hardFifteenGame);
+randomTwenty.addEventListener('click', randomTwentyGame);
+easyTwenty.addEventListener('click', easyTwentyGame);
+mediumTwenty.addEventListener('click', mediumTwentyGame);
+hardTwenty.addEventListener('click', hardTwentyGame);
+function tenButtonsOn(e){
     e.preventDefault();
-    fetch(baseUrl+randomUrl)
+    tenButtons.style.display = 'flex';
+    numberButtons.style.display = 'none';
+    numberButtons.style.margin = '0';
+    numberQuestion.style.display = 'none';
+}
+function fifteenButtonsOn(e){
+    e.preventDefault();
+    fifteenButtons.style.display = 'flex';
+    numberButtons.style.display = 'none';
+    numberButtons.style.margin = '0';
+    numberQuestion.style.display = 'none';
+}
+function twentyButtonsOn(e){
+    e.preventDefault();
+    twentyButtons.style.display = 'flex';
+    numberButtons.style.display = 'none';
+    numberButtons.style.margin = '0';
+    numberQuestion.style.display = 'none';
+}
+function randomTenGame(e){
+    e.preventDefault();
+    fetch(baseTenUrl+randomUrl)
         .then(res=>{
             return res.json()
         })
@@ -40,9 +91,9 @@ function randomGame(e){
             });
     body.classList.add('randomBackground')
 }
-function easyGame(e){
+function easyTenGame(e){
     e.preventDefault();
-    fetch(baseUrl+easyUrl)
+    fetch(baseTenUrl+easyUrl)
         .then(res=>{
             return res.json()
         })
@@ -53,9 +104,9 @@ function easyGame(e){
             });
     body.classList.add('easyBackground')
 }
-function mediumGame(e){
+function mediumTenGame(e){
     e.preventDefault();
-    fetch(baseUrl+mediumUrl)
+    fetch(baseTenUrl+mediumUrl)
         .then(res=>{
             return res.json()
         })
@@ -66,9 +117,115 @@ function mediumGame(e){
             });            
     body.classList.add('mediumBackground')
 }
-function hardGame(e){
+function hardTenGame(e){
     e.preventDefault();
-    fetch(baseUrl+hardUrl)
+    fetch(baseTenUrl+hardUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            
+            }); 
+    body.classList.add('hardBackground')           
+}
+function randomFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+randomUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('randomBackground')
+}
+function easyFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+easyUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('easyBackground')
+}
+function mediumFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+mediumUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });            
+    body.classList.add('mediumBackground')
+}
+function hardFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+hardUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            
+            }); 
+    body.classList.add('hardBackground')           
+}
+function randomTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+randomUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('randomBackground')
+}
+function easyTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+easyUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('easyBackground')
+}
+function mediumTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+mediumUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });            
+    body.classList.add('mediumBackground')
+}
+function hardTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+hardUrl)
         .then(res=>{
             return res.json()
         })
@@ -151,6 +308,10 @@ function endgame(e){
     questionBox.classList.remove('questionBoxOpen');
     modal.classList.add('modalClose')
     modal.addEventListener('animationend', closed);
+    difficultyButtons.style.display = 'none';
+    numberButtons.style.display = 'flex';
+    numberButtons.style.margin = '5px auto';   
+    numberQuestion.style.display = 'block'; 
     questions = [];
     gameStatus.innerHTML = '';
     gameOver.style.display = 'none';
