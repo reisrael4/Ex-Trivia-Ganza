@@ -21,11 +21,12 @@
     background-position: center;
  }
  button{
-    background-color: #065124;
-    border: 1px solid blanchedalmond;
+    background-color: #043316;
+    border: 1px solid whitesmoke;
     color: whitesmoke;
     font-size: 20px;
     padding: 15px;
+    width: 150px;
  }
  h1{
      text-align: center;
