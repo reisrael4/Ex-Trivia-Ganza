@@ -92,9 +92,19 @@ function turn(){
         answers[j].innerHTML = answersContentFinal[j]
     }
     answers.forEach(answer=>{
-        answer.addEventListener('click', checkCorrect)
+        answer.addEventListener('click', checkCorrect);
+        answer.addEventListener('mouseenter', answerMouse);
+        answer.addEventListener('mouseleave', answerMouseLeave)
     })
     nextButton.addEventListener('click', newQuestion)
+}
+function answerMouse(e){
+    e.preventDefault();
+    e.target.style.backgroundColor = 'darkgrey';
+}
+function answerMouseLeave(e){
+    e.preventDefault();
+    e.target.style.backgroundColor = '#fefefe';
 }
 function checkCorrect(e){
     e.preventDefault();
@@ -130,6 +140,10 @@ function endgame(e){
     for(let j=0; j<answers.length; j++){
         answers[j].innerHTML = '';
     }
+    removeEasy();
+    removeMedium();
+    removeHard();
+    removeRandom();
     questionBox.classList.remove('questionBoxOpen');
     modal.classList.add('modalClose')
     modal.addEventListener('animationend', closed);
@@ -140,6 +154,18 @@ function endgame(e){
     correctAnswer.innerHTML = '';
     answersContentFinal = [];
     answersContent = [];
+}
+function removeEasy(){
+    body.classList.remove('.easyBackground');
+}
+function removeMedium(){
+    body.classList.remove('.mediumBackground');  
+}
+function removeHard(){
+    body.classList.remove('.hardBackground');
+}
+function removeRandom(){
+    body.classList.remove('.randomBackground');
 }
 function closed(e){
     if(e.target == modal){

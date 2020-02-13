@@ -1,7 +1,7 @@
  body, button{
     font-family: 'Josefin Sans', sans-serif;
  }
- body{
+ .startBackground{
      background-image: url(https://images.unsplash.com/photo-1579999284976-73d606de1161?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1664&q=80);
  }
  .easyBackground{
@@ -16,9 +16,13 @@
  .randomBackground{
     background-image: url(https://cdn.pixabay.com/photo/2016/12/17/19/24/weather-1914185_1280.jpg);
  }
- .mediumBackground, .easyBackground, .hardBackground, .randomBackground{
+ .startBackground, .mediumBackground, .easyBackground, .hardBackground{
     background-size: cover;
-    background-position: center;
+    background-position: top;
+ }
+ .randomBackground{
+     background-size: cover;
+     background-position: bottom;
  }
  button{
     background-color: #043316;
