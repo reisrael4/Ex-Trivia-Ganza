@@ -1,1 +1,2 @@
-# project-4-game
+# Project 4 Trivia Game
+I created a trivia game using HTML, CSS, and Javascript. All the questions are being pulled from the Open Trivia Database API. A single player can select the number of questions they would like to answer 
