@@ -35,7 +35,7 @@ let nextButton = document.querySelector('.nextQuestion');
 let gameStatus = document.querySelector('.gameStatus');
 let gameOver = document.querySelector('.gameOver');
 let scoreAddress = document.querySelector('.js-score');
-let body = document.querySelector('body');
+let background = document.querySelector('.startBackground');
 let answersContentFinal = [];
 let i=0;
 score = 0;
@@ -89,7 +89,8 @@ function randomTenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-    body.classList.add('randomBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('randomBackground')
 }
 function easyTenGame(e){
     e.preventDefault();
@@ -102,7 +103,8 @@ function easyTenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-    body.classList.add('easyBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('easyBackground')
 }
 function mediumTenGame(e){
     e.preventDefault();
@@ -115,7 +117,8 @@ function mediumTenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
-    body.classList.add('mediumBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('mediumBackground')
 }
 function hardTenGame(e){
     e.preventDefault();
@@ -129,7 +132,8 @@ function hardTenGame(e){
             game();
             
             }); 
-    body.classList.add('hardBackground')           
+    background.classList.remove('endBackground')
+    background.classList.add('hardBackground')           
 }
 function randomFifteenGame(e){
     e.preventDefault();
@@ -142,7 +146,8 @@ function randomFifteenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-    body.classList.add('randomBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('randomBackground')
 }
 function easyFifteenGame(e){
     e.preventDefault();
@@ -155,7 +160,8 @@ function easyFifteenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-    body.classList.add('easyBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('easyBackground')
 }
 function mediumFifteenGame(e){
     e.preventDefault();
@@ -168,7 +174,8 @@ function mediumFifteenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
-    body.classList.add('mediumBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('mediumBackground')
 }
 function hardFifteenGame(e){
     e.preventDefault();
@@ -182,7 +189,8 @@ function hardFifteenGame(e){
             game();
             
             }); 
-    body.classList.add('hardBackground')           
+    background.classList.remove('endBackground')
+    background.classList.add('hardBackground')           
 }
 function randomTwentyGame(e){
     e.preventDefault();
@@ -195,7 +203,8 @@ function randomTwentyGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-    body.classList.add('randomBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('randomBackground')
 }
 function easyTwentyGame(e){
     e.preventDefault();
@@ -208,7 +217,8 @@ function easyTwentyGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-    body.classList.add('easyBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('easyBackground')
 }
 function mediumTwentyGame(e){
     e.preventDefault();
@@ -221,7 +231,8 @@ function mediumTwentyGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
-    body.classList.add('mediumBackground')
+    background.classList.remove('endBackground')
+    background.classList.add('mediumBackground')
 }
 function hardTwentyGame(e){
     e.preventDefault();
@@ -235,7 +246,8 @@ function hardTwentyGame(e){
             game();
             
             }); 
-    body.classList.add('hardBackground')           
+    background.classList.remove('endBackground')
+    background.classList.add('hardBackground')           
 }
 function game(){
     i=0;
@@ -301,10 +313,6 @@ function endgame(e){
     for(let j=0; j<answers.length; j++){
         answers[j].innerHTML = '';
     }
-    removeEasy();
-    removeMedium();
-    removeHard();
-    removeRandom();
     questionBox.classList.remove('questionBoxOpen');
     modal.classList.add('modalClose')
     modal.addEventListener('animationend', closed);
@@ -319,18 +327,12 @@ function endgame(e){
     correctAnswer.innerHTML = '';
     answersContentFinal = [];
     answersContent = [];
-}
-function removeEasy(){
-    body.classList.remove('.easyBackground');
-}
-function removeMedium(){
-    body.classList.remove('.mediumBackground');  
-}
-function removeHard(){
-    body.classList.remove('.hardBackground');
-}
-function removeRandom(){
-    body.classList.remove('.randomBackground');
+    background.classList.remove('easyBackground');
+    background.classList.remove('mediumBackground');  
+    background.classList.remove('hardBackground');
+    background.classList.remove('randomBackground');
+    background.classList.add('endBackground')
+
 }
 function closed(e){
     if(e.target == modal){

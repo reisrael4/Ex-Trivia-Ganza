@@ -6,7 +6,7 @@
      color: whitesmoke;
      margin: 0 auto;
  }
- .startBackground{
+ .startBackground, .endBackground{
     background-image: url(https://images.unsplash.com/photo-1579999284976-73d606de1161?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1664&q=80);
 }
  .easyBackground{
@@ -202,7 +202,7 @@
         width: 100%;
     }
     .smallQuestion{
-        margin-top: 100px;
+        margin-top: 35px;
         height: 100%;
     }
     .smallQuestionText{
@@ -215,7 +215,7 @@
         font-size: 16px;
     }
     .smallBackground{
-        /* background-size: cover; */
+        background-size: cover;
         background-position: top;
         background-repeat: no-repeat;
         height: 100vh;
@@ -224,6 +224,6 @@
     font-size: 16px;
     padding: 5px;
     width: 100px;
-    margin-top: 100px;
+    margin-top: 40px;
     }
 }
