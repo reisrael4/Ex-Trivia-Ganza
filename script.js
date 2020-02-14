@@ -8,12 +8,10 @@ let hardUrl = 'difficulty=hard&type=multiple';
 let difficultyButtons = document.querySelector('.difficultyButtons');
 let numberButtons = document.querySelector('.numberButtons')
 let numberQuestion = document.querySelector('.numberQuestion');
-let ten = document.querySelector('.ten');
+let numbers = document.querySelectorAll('.number');
 let tenButtons = document.querySelector('.tenButtons');
 let fifteenButtons = document.querySelector('.fifteenButtons');
 let twentyButtons = document.querySelector('.twentyButtons');
-let fifteen = document.querySelector('.fifteen');
-let twenty = document.querySelector('.twenty');
 let tenDifficulty = document.querySelectorAll('.tenDifficulty');
 let fifteenDifficulty = document.querySelectorAll('.fifteenDifficulty');
 let twentyDifficulty = document.querySelectorAll('.twentyDifficulty');
@@ -33,9 +31,9 @@ score = 0;
 let answersContent = [];
 let correctAnswer = document.querySelector('.correctAnswer')
 let questions = [];
-ten.addEventListener('click', tenButtonsOn);
-fifteen.addEventListener('click', fifteenButtonsOn);
-twenty.addEventListener('click', twentyButtonsOn);
+numbers.forEach(number=>{
+    number.addEventListener('click', openDifficultyButtons)
+})
 tenDifficulty.forEach(button=>{
     button.addEventListener('click', tenGame)
 });
@@ -45,26 +43,26 @@ fifteenDifficulty.forEach(button=>{
 twentyDifficulty.forEach(button=>{
     button.addEventListener('click', twentyGame)
 });
-function tenButtonsOn(e){
+function openDifficultyButtons(e){
     e.preventDefault();
-    tenButtons.style.display = 'flex';
-    numberButtons.style.display = 'none';
-    numberButtons.style.margin = '0';
-    numberQuestion.style.display = 'none';
-}
-function fifteenButtonsOn(e){
-    e.preventDefault();
-    fifteenButtons.style.display = 'flex';
-    numberButtons.style.display = 'none';
-    numberButtons.style.margin = '0';
-    numberQuestion.style.display = 'none';
-}
-function twentyButtonsOn(e){
-    e.preventDefault();
+    if(e.target.innerHTML='10'){
+        tenButtons.style.display = 'flex';
+        numberButtons.style.display = 'none';
+        numberButtons.style.margin = '0';
+        numberQuestion.style.display = 'none';
+    }
+    if(e.target.innerHTML='15'){
+        fifteenButtons.style.display = 'flex';
+        numberButtons.style.display = 'none';
+        numberButtons.style.margin = '0';
+        numberQuestion.style.display = 'none';    
+    }
+    if(e.target.innerHTML='20'){
     twentyButtons.style.display = 'flex';
     numberButtons.style.display = 'none';
     numberButtons.style.margin = '0';
     numberQuestion.style.display = 'none';
+    }
 }
 function tenGame(e){
     e.preventDefault();
