@@ -2,11 +2,34 @@
     font-family: 'Josefin Sans', sans-serif;
  }
  .score{
-     text-align: center;
-     color: whitesmoke;
      margin: 0 auto;
+     color: #FFFDFE;
  }
- .startBackground, .endBackground{
+ .easyHeader{
+     color: #344D2D;
+ }
+ .easyScore{
+     color: #D7E4DA;
+ }
+.mediumHeader{
+    color: #191415;
+}
+.mediumScore{
+    color: #615D3D;
+}
+.hardHeader{
+    color: #F94E16;
+}
+.hardScore{
+    color: #F9E617;
+}
+.randomHeader{
+    color: #E1E200;
+}
+.randomScore{
+    color: #D98005;
+}
+ .startBackground{
     background-image: url(https://images.unsplash.com/photo-1579999284976-73d606de1161?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1664&q=80);
 }
  .easyBackground{
@@ -31,10 +54,10 @@
  }
  .randomBackground{
      background-size: cover;
-     background-position: bottom;
+     background-position: 50% 50%;
  }
  button{
-    background-color: #043316;
+    background-color: #38507E;
     border: 1px solid whitesmoke;
     color: whitesmoke;
     font-size: 20px;
@@ -50,10 +73,12 @@
      margin-top: 5px;
  }
  h1, .numberQuestion{
-     text-align: center;
-     color: whitesmoke;
-     text-shadow: 1px 1px gray;
-     margin-bottom: 5px;
+    color: #F2A47F;
+    margin-bottom: 5px;
+ }
+ h1, .numberQuestion, .score{
+    text-align: center;
+    text-shadow: 1px 1px gray;
  }
  .numberButtons{
     display: flex;
