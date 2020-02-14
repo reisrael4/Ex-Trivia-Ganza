@@ -8,13 +8,24 @@ let hardUrl = 'difficulty=hard&type=multiple';
 let difficultyButtons = document.querySelector('.difficultyButtons');
 let numberButtons = document.querySelector('.numberButtons')
 let numberQuestion = document.querySelector('.numberQuestion');
-let numbers = document.querySelectorAll('.number');
+let ten = document.querySelector('.ten');
 let tenButtons = document.querySelector('.tenButtons');
 let fifteenButtons = document.querySelector('.fifteenButtons');
 let twentyButtons = document.querySelector('.twentyButtons');
-let tenDifficulty = document.querySelectorAll('.tenDifficulty');
-let fifteenDifficulty = document.querySelectorAll('.fifteenDifficulty');
-let twentyDifficulty = document.querySelectorAll('.twentyDifficulty');
+let fifteen = document.querySelector('.fifteen');
+let twenty = document.querySelector('.twenty');
+let randomTen = document.querySelector('.randomTen');
+let easyTen = document.querySelector('.easyTen');
+let mediumTen = document.querySelector('.mediumTen');
+let hardTen = document.querySelector('.hardTen');
+let randomFifteen = document.querySelector('.randomFifteen');
+let easyFifteen = document.querySelector('.easyFifteen');
+let mediumFifteen = document.querySelector('.mediumFifteen');
+let hardFifteen = document.querySelector('.hardFifteen');
+let randomTwenty = document.querySelector('.randomTwenty');
+let easyTwenty = document.querySelector('.easyTwenty');
+let mediumTwenty = document.querySelector('.mediumTwenty');
+let hardTwenty = document.querySelector('.hardTwenty');
 let questionBox = document.querySelector('.questionBox');
 let questionText = document.querySelector('.questionText');
 let answers = document.querySelectorAll('.answer');
@@ -31,43 +42,45 @@ score = 0;
 let answersContent = [];
 let correctAnswer = document.querySelector('.correctAnswer')
 let questions = [];
-numbers.forEach(number=>{
-    number.addEventListener('click', openDifficultyButtons)
-})
-tenDifficulty.forEach(button=>{
-    button.addEventListener('click', tenGame)
-});
-fifteenDifficulty.forEach(button=>{
-    button.addEventListener('click', fifteenGame)
-});
-twentyDifficulty.forEach(button=>{
-    button.addEventListener('click', twentyGame)
-});
-function openDifficultyButtons(e){
+ten.addEventListener('click', tenButtonsOn);
+fifteen.addEventListener('click', fifteenButtonsOn);
+twenty.addEventListener('click', twentyButtonsOn);
+randomTen.addEventListener('click', randomTenGame);
+easyTen.addEventListener('click', easyTenGame);
+mediumTen.addEventListener('click', mediumTenGame);
+hardTen.addEventListener('click', hardTenGame);
+randomFifteen.addEventListener('click', randomFifteenGame);
+easyFifteen.addEventListener('click', easyFifteenGame);
+mediumFifteen.addEventListener('click', mediumFifteenGame);
+hardFifteen.addEventListener('click', hardFifteenGame);
+randomTwenty.addEventListener('click', randomTwentyGame);
+easyTwenty.addEventListener('click', easyTwentyGame);
+mediumTwenty.addEventListener('click', mediumTwentyGame);
+hardTwenty.addEventListener('click', hardTwentyGame);
+function tenButtonsOn(e){
     e.preventDefault();
-    if(e.target.innerHTML='10'){
-        tenButtons.style.display = 'flex';
-        numberButtons.style.display = 'none';
-        numberButtons.style.margin = '0';
-        numberQuestion.style.display = 'none';
-    }
-    if(e.target.innerHTML='15'){
-        fifteenButtons.style.display = 'flex';
-        numberButtons.style.display = 'none';
-        numberButtons.style.margin = '0';
-        numberQuestion.style.display = 'none';    
-    }
-    if(e.target.innerHTML='20'){
+    tenButtons.style.display = 'flex';
+    numberButtons.style.display = 'none';
+    numberButtons.style.margin = '0';
+    numberQuestion.style.display = 'none';
+}
+function fifteenButtonsOn(e){
+    e.preventDefault();
+    fifteenButtons.style.display = 'flex';
+    numberButtons.style.display = 'none';
+    numberButtons.style.margin = '0';
+    numberQuestion.style.display = 'none';
+}
+function twentyButtonsOn(e){
+    e.preventDefault();
     twentyButtons.style.display = 'flex';
     numberButtons.style.display = 'none';
     numberButtons.style.margin = '0';
     numberQuestion.style.display = 'none';
-    }
 }
-function tenGame(e){
+function randomTenGame(e){
     e.preventDefault();
-    if(e.target.innerHTML='Easy'){
-        fetch(baseTenUrl+easyUrl)
+    fetch(baseTenUrl+randomUrl)
         .then(res=>{
             return res.json()
         })
@@ -76,9 +89,24 @@ function tenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-        body.classList.add('easyBackground')
-    } else if(e.target.innerHTML='Medium'){
-        fetch(baseTenUrl+mediumUrl)
+    body.classList.add('randomBackground')
+}
+function easyTenGame(e){
+    e.preventDefault();
+    fetch(baseTenUrl+easyUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('easyBackground')
+}
+function mediumTenGame(e){
+    e.preventDefault();
+    fetch(baseTenUrl+mediumUrl)
         .then(res=>{
             return res.json()
         })
@@ -87,9 +115,11 @@ function tenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
-        body.classList.add('mediumBackground')
-    } else if(e.target.innerHTML='Hard'){
-        fetch(baseTenUrl+hardUrl)
+    body.classList.add('mediumBackground')
+}
+function hardTenGame(e){
+    e.preventDefault();
+    fetch(baseTenUrl+hardUrl)
         .then(res=>{
             return res.json()
         })
@@ -99,24 +129,11 @@ function tenGame(e){
             game();
             
             }); 
-        body.classList.add('hardBackground') 
-    } else if(e.target.innerHTML='Random'){
-        fetch(baseTenUrl+randomUrl)
-        .then(res=>{
-            return res.json()
-        })
-        .then(res=>{ 
-            questions.push(...res.results);
-            questionBox.classList.add('questionBoxOpen');
-            game();
-            });
-        body.classList.add('randomBackground')
-    }
+    body.classList.add('hardBackground')           
 }
-function fifteenGame(e){
+function randomFifteenGame(e){
     e.preventDefault();
-    if(e.target.innerHTML='Easy'){
-        fetch(baseFifteenUrl+easyUrl)
+    fetch(baseFifteenUrl+randomUrl)
         .then(res=>{
             return res.json()
         })
@@ -125,9 +142,24 @@ function fifteenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-        body.classList.add('easyBackground')
-    } else if(e.target.innerHTML='Medium'){
-        fetch(baseFifteenUrl+mediumUrl)
+    body.classList.add('randomBackground')
+}
+function easyFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+easyUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('easyBackground')
+}
+function mediumFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+mediumUrl)
         .then(res=>{
             return res.json()
         })
@@ -136,9 +168,11 @@ function fifteenGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
-        body.classList.add('mediumBackground')
-    } else if(e.target.innerHTML='Hard'){
-        fetch(baseFifteenUrl+hardUrl)
+    body.classList.add('mediumBackground')
+}
+function hardFifteenGame(e){
+    e.preventDefault();
+    fetch(baseFifteenUrl+hardUrl)
         .then(res=>{
             return res.json()
         })
@@ -148,24 +182,11 @@ function fifteenGame(e){
             game();
             
             }); 
-        body.classList.add('hardBackground') 
-    } else if(e.target.innerHTML='Random'){
-        fetch(baseFifteenUrl+randomUrl)
-        .then(res=>{
-            return res.json()
-        })
-        .then(res=>{ 
-            questions.push(...res.results);
-            questionBox.classList.add('questionBoxOpen');
-            game();
-            });
-        body.classList.add('randomBackground')
-    }
+    body.classList.add('hardBackground')           
 }
-function twentyGame(e){
+function randomTwentyGame(e){
     e.preventDefault();
-    if(e.target.innerHTML='Easy'){
-        fetch(baseTwentyUrl+easyUrl)
+    fetch(baseTwentyUrl+randomUrl)
         .then(res=>{
             return res.json()
         })
@@ -174,9 +195,24 @@ function twentyGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });
-        body.classList.add('easyBackground')
-    } else if(e.target.innerHTML='Medium'){
-        fetch(baseTwentyUrl+mediumUrl)
+    body.classList.add('randomBackground')
+}
+function easyTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+easyUrl)
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{ 
+            questions.push(...res.results);
+            questionBox.classList.add('questionBoxOpen');
+            game();
+            });
+    body.classList.add('easyBackground')
+}
+function mediumTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+mediumUrl)
         .then(res=>{
             return res.json()
         })
@@ -185,9 +221,11 @@ function twentyGame(e){
             questionBox.classList.add('questionBoxOpen');
             game();
             });            
-        body.classList.add('mediumBackground')
-    } else if(e.target.innerHTML='Hard'){
-        fetch(baseTwentyUrl+hardUrl)
+    body.classList.add('mediumBackground')
+}
+function hardTwentyGame(e){
+    e.preventDefault();
+    fetch(baseTwentyUrl+hardUrl)
         .then(res=>{
             return res.json()
         })
@@ -197,19 +235,7 @@ function twentyGame(e){
             game();
             
             }); 
-        body.classList.add('hardBackground') 
-    } else if(e.target.innerHTML='Random'){
-        fetch(baseTwentyUrl+randomUrl)
-        .then(res=>{
-            return res.json()
-        })
-        .then(res=>{ 
-            questions.push(...res.results);
-            questionBox.classList.add('questionBoxOpen');
-            game();
-            });
-        body.classList.add('randomBackground')
-    }
+    body.classList.add('hardBackground')           
 }
 function game(){
     i=0;

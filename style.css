@@ -24,6 +24,10 @@
  .startBackground, .mediumBackground, .easyBackground, .hardBackground{
     background-size: cover;
     background-position: top;
+    background-repeat: no-repeat;
+ }
+ .startBackground, .mediumBackground, .easyBackground, .hardBackground, .randomBackground{
+    background-repeat: no-repeat;
  }
  .randomBackground{
      background-size: cover;
@@ -89,8 +93,6 @@
     width: 500px;
     margin: 15px auto;
     font-size: 24px;
-    /* padding-top: 120px; */
-    /* padding-bottom: 120px; */
 }
 .answer{
     width: 500px;
@@ -196,7 +198,32 @@
     }
 }
 @media screen and (max-width: 800px){
-    .smallQuestion, .smallAnswer{
-        width: 75%;
+    .smallQuestion, .smallAnswer, .smallQuestionText{
+        width: 100%;
+    }
+    .smallQuestion{
+        margin-top: 35px;
+        height: 100%;
+    }
+    .smallQuestionText{
+        font-size: 16px;
+        padding: 0;
+        margin: 5px auto;
+        text-align: center;
+    }
+    .smallAnswer{
+        font-size: 16px;
+    }
+    .smallBackground{
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    .smallButtons{
+    font-size: 16px;
+    padding: 5px;
+    width: 100px;
+    margin-top: 40px;
     }
 }
