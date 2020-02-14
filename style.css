@@ -6,7 +6,8 @@
      color: #FFFDFE;
  }
  .easyHeader{
-     color: #344D2D;
+     color: #3E5B35;
+     text-shadow: 1px 1px black;
  }
  .easyScore{
      color: #D7E4DA;
@@ -73,7 +74,7 @@
      margin-top: 5px;
  }
  h1, .numberQuestion{
-    color: #F2A47F;
+    color: #EDA163;
     margin-bottom: 5px;
  }
  h1, .numberQuestion, .score{
@@ -112,6 +113,8 @@
     text-align: center;
     justify-content: center;
     align-content: center;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+    opacity: .9;
 }
 .question{
     height: 300px;
