@@ -342,7 +342,6 @@ function endgame(e){
     questionBox.classList.remove('questionBoxOpen');
     modal.classList.add('modalClose')
     modal.addEventListener('animationend', closed);
-    difficultyButtons.style.display = 'none';
     numberButtons.style.display = 'flex';
     numberButtons.style.margin = '5px auto';   
     numberQuestion.style.display = 'block'; 
